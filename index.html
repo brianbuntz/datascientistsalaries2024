@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Salary Ranges for Top Paid Data Scientist Roles by Industry</title>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {packages: ['corechart', 'bar']});
+      google.charts.setOnLoadCallback(drawStacked);
+
+      function drawStacked() {
+        var data = google.visualization.arrayToDataTable([
+          ['Industry', 'Minimum Salary', 'Additional Salary'],
+          ['Video Communications', 94600, 218700 - 94600],
+          ['E-commerce', 143300, 247600 - 143300],
+          ['HR Solutions', 220000, 400000 - 220000],
+          ['Accelerated Computing', 220000, 391000 - 220000],
+          ['Health', 215000, 388500 - 215000],
+          ['Automotive', 104000, 360000 - 104000],
+          ['Industrial', 94600, 199600 - 94600],
+          ['Semiconductor', 220000, 391000 - 220000],
+          ['Robotics', 94600, 364100 - 94600]
+        ]);
+
+        var options = {
+          title: 'Salary Ranges for Top Paid Data Scientist Roles by Industry',
+          chartArea: {width: '60%'},
+          isStacked: true,
+          bars: 'horizontal',
+          legend: { position: 'top', maxLines: 3 },
+          bar: { groupWidth: '75%' },
+          hAxis: {
+            title: 'Salary (USD)',
+            minValue: 0,
+          },
+          vAxis: {
+            title: 'Industry',
+            slantedText: true,
+            slantedTextAngle: 45
+          }
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('stacked_bar_chart'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="stacked_bar_chart" style="width: 100%; height: 500px;"></div>
+  </body>
+</html>
